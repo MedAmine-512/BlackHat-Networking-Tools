@@ -1,7 +1,8 @@
 import socket 
 
-target_host = ""
-target_port = 80
+
+target_host = input("What server do you want to connect to : ")
+target_port = int(input("On what PORT are you connecting: "))
 
 
 
@@ -12,7 +13,11 @@ client.connect((target_host,target_port))
 
 
 # Data sent in Bytes to the target host
-client.send(b"GET / HTTP/1.1\r\nHost: google.com\r\n\r\n")
+# client.send(b"GET / HTTP/1.1\r\nHost: google.com\r\n\r\n")
+
+Message = input("What is your message: ")
+client.send(Message.encode())
+
 
 '''
 The b before the string (b"...") means that this is a byte string in Python.
